@@ -1,4 +1,4 @@
-package com.cydeo.controller;
+package com.frank.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.cydeo.enums;
+package com.frank.enums;
 
 public enum Gender {
 

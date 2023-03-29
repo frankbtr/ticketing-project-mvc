@@ -1,12 +1,12 @@
-package com.cydeo.bootstrap;
+package com.frank.bootstrap;
 
-import com.cydeo.dto.RoleDTO;
+import com.frank.dto.RoleDTO;
 
-import com.cydeo.dto.UserDTO;
-import com.cydeo.enums.Gender;
-import com.cydeo.service.RoleService;
+import com.frank.dto.UserDTO;
+import com.frank.enums.Gender;
+import com.frank.service.RoleService;
 
-import com.cydeo.service.UserService;
+import com.frank.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

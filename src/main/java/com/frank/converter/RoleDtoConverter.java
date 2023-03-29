@@ -1,7 +1,7 @@
-package com.cydeo.converter;
+package com.frank.converter;
 
-import com.cydeo.dto.RoleDTO;
-import com.cydeo.service.RoleService;
+import com.frank.dto.RoleDTO;
+import com.frank.service.RoleService;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

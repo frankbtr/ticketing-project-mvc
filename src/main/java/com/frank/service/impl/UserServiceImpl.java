@@ -1,7 +1,7 @@
-package com.cydeo.service.impl;
+package com.frank.service.impl;
 
-import com.cydeo.dto.UserDTO;
-import com.cydeo.service.UserService;
+import com.frank.dto.UserDTO;
+import com.frank.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +21,11 @@ public class UserServiceImpl extends AbstractMapService<UserDTO, String> impleme
     @Override
     public void deleteById(String id) {
          super.deleteById(id);
+    }
+
+    @Override
+    public void update(UserDTO object) {
+        super.update(object.getUserName(), object);
     }
 
     @Override

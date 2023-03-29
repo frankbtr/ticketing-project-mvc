@@ -1,7 +1,7 @@
-package com.cydeo.service.impl;
+package com.frank.service.impl;
 
-import com.cydeo.dto.RoleDTO;
-import com.cydeo.service.RoleService;
+import com.frank.dto.RoleDTO;
+import com.frank.service.RoleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +23,11 @@ public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public void update(RoleDTO object) {
+        super.update(object.getId(), object);
     }
 
     @Override
