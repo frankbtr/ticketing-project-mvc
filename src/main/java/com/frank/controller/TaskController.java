@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.PublicKey;
+
 @Controller
 @RequestMapping("/task")
 public class TaskController {
@@ -45,6 +47,31 @@ public class TaskController {
     @GetMapping("/delete/{id}")
     public String deleteTask(@PathVariable("id") Long id){
         taskService.deleteById(id);
+        return "redirect:/task/create";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateTask(@PathVariable("id") Long id, Model model){
+
+        model.addAttribute("task", taskService.findById(id));
+        model.addAttribute("projects", projectService.findAll());
+        model.addAttribute("employees", userService.findEmployees());
+        model.addAttribute("tasks", taskService.findAll());
+
+        return "/task/update";
+    }
+
+//    @PostMapping("/update/{Taskid}")
+//    public String updateTask(@PathVariable("Taskid") Long id, TaskDTO task){
+//        task.setId(id);
+//        taskService.update(task);
+//        return "redirect:/task/create";
+//    }
+
+
+    @PostMapping("/update/{id}")
+    public String updateTask(TaskDTO task){
+        taskService.update(task);
         return "redirect:/task/create";
     }
 }
