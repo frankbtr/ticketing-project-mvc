@@ -1,6 +1,7 @@
 package com.frank.controller;
 
 import com.frank.dto.ProjectDTO;
+import com.frank.enums.Status;
 import com.frank.service.ProjectService;
 import com.frank.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -26,13 +27,14 @@ public class ProjectController {
 
         model.addAttribute("project", new ProjectDTO());
         model.addAttribute("projects", projectService.findAll());
-        model.addAttribute("managers", userService.findAll());
+        model.addAttribute("managers", userService.findManagers());
         return "/project/create";
     }
 
     @PostMapping("/create")
     public String insertProject(ProjectDTO project){
-
+        // it is not a good practice that put business logic in controller
+      //  project.setProjectStatus(Status.OPEN);
         projectService.save(project);
         return "redirect:/project/create";
     }

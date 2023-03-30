@@ -1,6 +1,7 @@
 package com.frank.service.impl;
 
 import com.frank.dto.ProjectDTO;
+import com.frank.enums.Status;
 import com.frank.service.ProjectService;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,11 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO, String> i
 
     @Override
     public ProjectDTO save(ProjectDTO object) {
+
+        if (object.getProjectStatus() == null){
+            object.setProjectStatus(Status.OPEN);
+        }
+
         return super.save(object.getProjectCode(), object);
     }
 
