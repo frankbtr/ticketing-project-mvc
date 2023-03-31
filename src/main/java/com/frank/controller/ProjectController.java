@@ -1,6 +1,7 @@
 package com.frank.controller;
 
 import com.frank.dto.ProjectDTO;
+import com.frank.dto.UserDTO;
 import com.frank.enums.Status;
 import com.frank.service.ProjectService;
 import com.frank.service.UserService;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/project")
@@ -66,5 +69,16 @@ public class ProjectController {
 
         projectService.update(project);
         return "redirect:/project/create";
+    }
+
+    @GetMapping("/manager/project-status")
+    public String getProjectByManager(Model model){
+
+        UserDTO manager = userService.findById("john@gmail.com");
+
+        List<ProjectDTO> projects = projectService.getCountedListOfProjectDTO(manager);
+        model.addAttribute("projects", projects);
+
+        return "/manager/project-status";
     }
 }
